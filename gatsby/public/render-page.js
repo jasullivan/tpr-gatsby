@@ -104,6 +104,25 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 var plugins = [{
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-styled-components/gatsby-ssr */ "./node_modules/gatsby-plugin-styled-components/gatsby-ssr.js"),
+  options: {
+    "plugins": [],
+    "displayName": true,
+    "fileName": true,
+    "minify": true,
+    "namespace": "",
+    "transpileTemplateLiterals": true,
+    "pure": false
+  }
+}, {
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-source-sanity/gatsby-ssr */ "./node_modules/gatsby-source-sanity/gatsby-ssr.js"),
+  options: {
+    "plugins": [],
+    "projectId": "ldyzji7o",
+    "dataset": "production",
+    "watchMode": true
+  }
+}, {
   plugin: __webpack_require__(/*! ./gatsby-ssr */ "./gatsby-ssr.js"),
   options: {
     "plugins": []
@@ -3274,6 +3293,47 @@ function parsePath(path) {
 
 /***/ }),
 
+/***/ "./node_modules/gatsby-plugin-styled-components/gatsby-ssr.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/gatsby-plugin-styled-components/gatsby-ssr.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _styledComponents = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.esm.js");
+
+var sheetByPathname = new Map(); // eslint-disable-next-line react/prop-types,react/display-name
+
+exports.wrapRootElement = function (_ref) {
+  var element = _ref.element,
+      pathname = _ref.pathname;
+  var sheet = new _styledComponents.ServerStyleSheet();
+  sheetByPathname.set(pathname, sheet);
+  return /*#__PURE__*/_react.default.createElement(_styledComponents.StyleSheetManager, {
+    sheet: sheet.instance
+  }, element);
+};
+
+exports.onRenderBody = function (_ref2) {
+  var setHeadComponents = _ref2.setHeadComponents,
+      pathname = _ref2.pathname;
+  var sheet = sheetByPathname.get(pathname);
+
+  if (sheet) {
+    setHeadComponents([sheet.getStyleElement()]);
+    sheetByPathname.delete(pathname);
+  }
+};
+
+/***/ }),
+
 /***/ "./node_modules/gatsby-react-router-scroll/index.js":
 /*!**********************************************************!*\
   !*** ./node_modules/gatsby-react-router-scroll/index.js ***!
@@ -3657,6 +3717,51 @@ function useScrollRestoration(identifier) {
     }
   };
 }
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-source-sanity/gatsby-ssr.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/gatsby-source-sanity/gatsby-ssr.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Proxy to TypeScript-compiled output.
+// Note that unlike gatsby-node.js, we need to explicitly define the exported hooks
+// as they seem to be statically analyzed at build time.
+const ssr = __webpack_require__(/*! ./lib/gatsby-ssr */ "./node_modules/gatsby-source-sanity/lib/gatsby-ssr.js");
+
+exports.onRenderBody = ssr.onRenderBody;
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-source-sanity/lib/gatsby-ssr.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/gatsby-source-sanity/lib/gatsby-ssr.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onRenderBody = void 0;
+
+const react_1 = __webpack_require__(/*! react */ "react");
+
+exports.onRenderBody = ({
+  setHeadComponents
+}) => {
+  setHeadComponents([react_1.createElement('link', {
+    rel: 'preconnect',
+    key: 'sanity-cdn-preconnect',
+    href: 'https://cdn.sanity.io'
+  })]);
+};
 
 /***/ }),
 
@@ -31488,54 +31593,15 @@ __webpack_require__.r(__webpack_exports__);
 
  // import Logo from './Logo';
 
-const HeaderStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].header`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-const NavStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  img {
-    height: 6.4rem;
-    width: 5rem;
-  }
-  ul {
-    margin: 0 auto;
-    padding: 2.75rem 4rem 0;
-    display: flex;
-  }
-  li {
-    margin: 0 2rem;
-  }
-  a {
-    font-size: 2.2rem;
-    text-decoration: none;
-    &:hover {
-      color: var(--tpr-light-blue);
-    }
-  }
-`;
-const SocialNavStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div`
-  ul {
-    margin: 0 auto;
-    padding: 2.75rem 4rem 0;
-    display: flex;
-    flex-direction: row;
-  }
-  li {
-    order: 1;
-  }
-  a {
-    font-size: 2.2rem;
-    text-decoration: none;
-    &:hover {
-      color: var(--tpr-light-blue);
-    }
-  }
-`;
+const HeaderStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].header.withConfig({
+  displayName: "Header__HeaderStyles"
+})(["display:flex;flex-direction:row;align-items:center;justify-content:space-between;"]);
+const NavStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+  displayName: "Header__NavStyles"
+})(["display:flex;flex-direction:row;align-items:center;img{height:6.4rem;width:5rem;}ul{margin:0 auto;padding:2.75rem 4rem 0;display:flex;}li{margin:0 2rem;}a{font-size:2.2rem;text-decoration:none;&:hover{color:var(--tpr-light-blue);}}"]);
+const SocialNavStyles = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+  displayName: "Header__SocialNavStyles"
+})(["ul{margin:0 auto;padding:2.75rem 4rem 0;display:flex;flex-direction:row;}li{order:1;}a{font-size:2.2rem;text-decoration:none;&:hover{color:var(--tpr-light-blue);}}"]);
 function Nav() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(HeaderStyles, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(NavStyles, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/"
@@ -31591,25 +31657,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const SiteBorderStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-  margin: 0rem auto 4rem auto;
-  ${''
+const SiteBorderStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Layout__SiteBorderStyles"
+})(["margin:0rem auto 4rem auto;", " padding:5px;", " border:5px solid white;@media (max-width:1100px){margin-left:1.5rem;margin-right:1.5rem;}"], ''
 /* margin-top: clamp(2rem, 10vw, 12rem); */
-}
-  padding: 5px;
-  ${''
+, ''
 /* padding: clamp(5px, 1vw, 25px); */
-}
-  border: 5px solid white;
-  @media (max-width: 1100px) {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-`;
-const ContentStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
-  background: white;
-  padding: 2rem;
-`;
+);
+const ContentStyles = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Layout__ContentStyles"
+})(["background:white;padding:2rem;"]);
 function Layout({
   children
 }) {

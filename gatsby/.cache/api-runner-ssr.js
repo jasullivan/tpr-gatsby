@@ -1,4 +1,10 @@
 var plugins = [{
+      plugin: require('/Users/jamessullivan/Dropbox/Code/private work/Gatsby-tpr/tpr-gatsby/gatsby/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      options: {"plugins":[],"displayName":true,"fileName":true,"minify":true,"namespace":"","transpileTemplateLiterals":true,"pure":false},
+    },{
+      plugin: require('/Users/jamessullivan/Dropbox/Code/private work/Gatsby-tpr/tpr-gatsby/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
+      options: {"plugins":[],"projectId":"ldyzji7o","dataset":"production","watchMode":true},
+    },{
       plugin: require('/Users/jamessullivan/Dropbox/Code/private work/Gatsby-tpr/tpr-gatsby/gatsby/gatsby-ssr'),
       options: {"plugins":[]},
     }]
