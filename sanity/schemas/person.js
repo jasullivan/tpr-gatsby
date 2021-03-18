@@ -4,7 +4,7 @@ export default {
   // computer name of dataset
   name: 'person',
   // visible title
-  title: 'Slicemasters',
+  title: 'The team',
   type: 'document',
   // destructured as it's taking icon from the object with the same name
   icon,

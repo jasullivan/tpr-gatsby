@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "drt4ms38",
+    "projectId": "ldyzji7o",
     "dataset": "production"
   },
   "project": {
-    "name": "slicks-slices"
+    "name": "tpr-media"
   },
   "plugins": [
     "@sanity/base",

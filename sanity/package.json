@@ -1,10 +1,10 @@
 {
-  "name": "slicks-slices-backend",
+  "name": "tpr-media-backend",
   "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Wes Bos <wesbos@gmail.com>",
+  "author": "James Sullivan",
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint .",

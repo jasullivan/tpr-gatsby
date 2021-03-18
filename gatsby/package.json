@@ -1,7 +1,7 @@
 {
-  "name": "slicks-slices-frontend",
+  "name": "tpr-media-frontend",
   "private": true,
-  "description": "Slick Serves the Sweetest Slices",
+  "description": "tpr-media",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
