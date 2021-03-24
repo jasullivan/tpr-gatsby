@@ -2,7 +2,7 @@ import { MdPerson as icon } from 'react-icons/md';
 
 export default {
   // computer name of dataset
-  name: 'person',
+  name: 'teamMember',
   // visible title
   title: 'The team',
   type: 'document',

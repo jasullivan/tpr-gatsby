@@ -1,49 +1,38 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import { graphql } from 'gatsby';
+// import PeopleList from '../components/PeopleList';
 
-export default function AboutPage() {
+export default function AboutPage({ data }) {
+  // const people = data;
+  console.log(data.people.nodes[0].name);
   return (
     <>
-      <h1>About page!</h1>
-      <Carousel fade>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://picsum.photos/seed/picsum/800/400"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://picsum.photos/800/400?grayscale"
-            alt="Second slide"
-          />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://picsum.photos/800/400.jpg"
-            alt="Third slide"
-          />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+      <h1>{data.people.nodes[0].name}</h1>
+      <h2>{data.people.nodes[0].jobTitle}</h2>
     </>
   );
 }
+
+// query is not a special name - can be called anything
+export const query = graphql`
+  query PeopleQuery {
+    people: allSanityPerson {
+      nodes {
+        name
+        jobTitle
+        description
+        id
+        slug {
+          current
+        }
+        image {
+          asset {
+            fluid(maxWidth: 400) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
