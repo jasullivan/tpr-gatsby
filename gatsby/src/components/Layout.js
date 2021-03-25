@@ -23,6 +23,11 @@ const ContentStyles = styled.div`
   padding: 2rem;
 `;
 
+const InnerContentStyles = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+`;
+
 export default function Layout({ children }) {
   return (
     <div>
@@ -31,7 +36,7 @@ export default function Layout({ children }) {
       <SiteBorderStyles>
         <ContentStyles>
           <Header />
-          {children}
+          <InnerContentStyles>{children}</InnerContentStyles>
           <Footer />
         </ContentStyles>
       </SiteBorderStyles>
