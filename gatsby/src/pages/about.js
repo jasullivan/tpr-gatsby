@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 // import PeopleList from '../components/PeopleList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'react-bootstrap';
 import Layout from '../components/Layout';
 import BlueBarHeader from '../components/BlueBarHeader';
 
@@ -25,6 +27,56 @@ export default function AboutPage({ data }) {
       <main>
         <h2>{data.people.nodes[0].name}</h2>
         <h3>{data.people.nodes[0].jobTitle}</h3>
+        <div>Employees with modal</div>
+        <Container>
+          <Row>
+            <Col xs={11} className="mx-auto mt-3">
+              <p className="text-center">
+                Our contacts book is our strongest asset. We have extensive
+                knowledge of the media industries and strong, meaningful
+                relationships with influential journalists across consumer
+                print, TV and radio, trade press and online. We've spent nearly
+                two decades identifying and building connections with the most
+                talented and trusted writers and broadcasters in the UK and
+                overseas and the high quality of the work we promote means that
+                journalists are highly receptive to our projects.
+              </p>
+              <p className="text-center pt-3">
+                Alongside media relations, our team has the experience and
+                expertise to support your project with a wide range of marketing
+                tools:
+              </p>
+            </Col>
+          </Row>
+          <Row className="pb-5">
+            <Col md={4} className="ml-auto">
+              <ul className="text-center py-3 pl-0">
+                <li>PR consulting</li>
+                <li>Marketing strategy</li>
+                <li>Marketing communication</li>
+                <li>Profile building</li>
+                <li>Issue &amp; crisis management</li>
+                <li>Media training</li>
+                <li>Event planning and management</li>
+                <li>Client representation</li>
+                <li>Internal communications</li>
+              </ul>
+            </Col>
+            <Col md={4} className="mr-auto">
+              <ul className="text-center py-3 pl-0">
+                <li>PR consulting</li>
+                <li>Marketing strategy</li>
+                <li>Marketing communication</li>
+                <li>Profile building</li>
+                <li>Issue &amp; crisis management</li>
+                <li>Media training</li>
+                <li>Event planning and management</li>
+                <li>Client representation</li>
+                <li>Internal communications</li>
+              </ul>
+            </Col>
+          </Row>
+        </Container>
       </main>
     </Layout>
   );

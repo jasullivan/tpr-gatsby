@@ -9,7 +9,7 @@ const CarouselStyles = styled.div`
   max-width: 120rem;
   margin: 10px auto 25px;
   text-align: center;
-  @media (min-width: 1100px) {
+  @media (min-width: 1200px) {
     margin: 10px auto 15px;
   }
 `;

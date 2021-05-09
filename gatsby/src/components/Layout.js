@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import 'normalize.css';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import TprGlobalStyles from '../styles/TprGlobalStyles';
+import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/TprTypography';
 
 const ContentStyles = styled.div`
@@ -21,7 +21,7 @@ const InnerContentStyles = styled.div`
 export default function Layout({ children }) {
   return (
     <div>
-      <TprGlobalStyles />
+      <GlobalStyles />
       <Typography />
       <ContentStyles>
         <Navigation />

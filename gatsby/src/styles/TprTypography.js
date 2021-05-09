@@ -22,6 +22,9 @@ const TprTypography = createGlobalStyle`
     /* Chrome renders this weird with this font, so we turn it off */
     text-decoration-skip-ink: none;
   }
+  .navbar-light .navbar-nav .nav-link.active {
+    color: var(--tpr-light-blue);
+  }
 
   button, .button {
    font-family: 'Open Sans', Arial, sans-serif; 

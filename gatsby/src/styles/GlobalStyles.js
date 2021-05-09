@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const TprGlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   :root {
     --tpr-color-primary: #333333;
     --color-light-grey: #747474;
@@ -50,6 +50,23 @@ const TprGlobalStyles = createGlobalStyle`
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
   }
+
+
+  .tpr-article__title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .tpr-article__paragraph {
+        text-align: center;
+        padding: 3px 0;
+    }
+    .tpr-article__link {
+        color: $tpr-dark-blue;
+        &:hover {
+            color: $tpr-light-blue;  
+        }
+    }
+
 `;
 
-export default TprGlobalStyles;
+export default GlobalStyles;
