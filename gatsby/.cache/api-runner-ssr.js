@@ -4,9 +4,6 @@ var plugins = [{
     },{
       plugin: require('/Users/jamessullivan/Dropbox/Code/private work/Gatsby-tpr/tpr-gatsby/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
       options: {"plugins":[],"projectId":"ldyzji7o","dataset":"production","watchMode":true},
-    },{
-      plugin: require('/Users/jamessullivan/Dropbox/Code/private work/Gatsby-tpr/tpr-gatsby/gatsby/gatsby-ssr'),
-      options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
