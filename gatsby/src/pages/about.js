@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 // import PeopleList from '../components/PeopleList';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 import Layout from '../components/Layout';
+// import Modal from '../components/Modal';
 import BlueBarHeader from '../components/BlueBarHeader';
 
 export default function AboutPage({ data }) {
   // const people = data;
   console.log(data.people.nodes[0].name);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Layout>
       <BlueBarHeader>
@@ -29,6 +36,23 @@ export default function AboutPage({ data }) {
         <h3>{data.people.nodes[0].jobTitle}</h3>
         <div>Employees with modal</div>
         <Container>
+          <Row className="px-5 pt-5 justify-content-md-center">
+            <Col sm={4} className="px-2 text-center">
+              <Button variant="primary" onClick={handleShow}>
+                {data.people.nodes[0].name}
+              </Button>
+            </Col>
+            <Col sm={4} className="px-2 text-center">
+              <Button variant="primary" onClick={handleShow}>
+                {data.people.nodes[0].name}
+              </Button>
+            </Col>
+            <Col sm={4} className="px-2 text-center">
+              <Button variant="primary" onClick={handleShow}>
+                {data.people.nodes[0].name}
+              </Button>
+            </Col>
+          </Row>
           <Row>
             <Col xs={11} className="mx-auto mt-3">
               <p className="text-center">
@@ -76,6 +100,23 @@ export default function AboutPage({ data }) {
               </ul>
             </Col>
           </Row>
+
+          <Modal show={show} onHide={handleClose} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Woohoo, you're reading this text in a modal!
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Container>
       </main>
     </Layout>
